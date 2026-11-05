@@ -1,44 +1,103 @@
-# Firebase Product Manager – In-Class 12
+# Firebase Authentication – In-Class Activity 13
 
-A Flutter product catalogue backed by Cloud Firestore.
+## Project Overview
+
+This is a Flutter application developed for In-Class Activity 13. It uses Firebase Authentication to allow users to register with an email and password, sign in, view their profile, update their password, and sign out.
+
+The application uses Firebase Authentication to manage user sessions and automatically switches between the authentication screen and profile screen depending on whether the user is signed in.
 
 ## Features
-- Create, read, update, and delete products
-- Real-time updates with `StreamBuilder`
-- Case-insensitive substring search
-- Inclusive minimum and maximum price filters
-- Combined search and price filtering
-- Reset filters
-- Product name and numeric price validation
-- Firestore error handling
 
-## Firestore schema
-Collection: `products`
+- **Register:** Create a new account using an email address and password.
+- **Sign In:** Authenticate using an existing email and password.
+- **Input Validation:** Validate required fields and display helpful error messages.
+- **Password Visibility:** Show or hide the password while entering it.
+- **Authentication State:** Use `authStateChanges()` to automatically display the appropriate screen.
+- **Profile:** Display the email address of the currently signed-in user.
+- **Update Password:** Request the current password, reauthenticate the user, and update the password.
+- **Sign Out:** Sign out of the application and return to the authentication screen.
 
-Each document:
-- `name`: String
-- `price`: Number (integer or double)
+## Project Structure
 
-## Setup
-1. Install Flutter and configure an Android emulator/device.
-2. Install Firebase CLI and FlutterFire CLI.
-3. From this project directory run:
+```text
+lib/
+├── main.dart
+├── firebase_options.dart
+├── screens/
+│   ├── authentication_screen.dart
+│   └── profile_screen.dart
+└── services/
+    └── auth_service.dart
+```
+
+- **main.dart:** Initializes Firebase and listens for authentication-state changes using `StreamBuilder`.
+- **firebase_options.dart:** Contains Firebase configuration generated using FlutterFire CLI.
+- **auth_service.dart:** Handles Firebase Authentication operations, including registration, sign-in, sign-out, and password updates.
+- **authentication_screen.dart:** Provides the login and registration interface with input validation and error handling.
+- **profile_screen.dart:** Displays the signed-in user's email and provides options to update the password and sign out.
+
+## How to Run
+
+1. Install Flutter and configure an Android emulator or connected device.
+2. Clone the repository:
+
+   ```bash
+   git clone https://github.com/anuradha-ks/my_product_app.git
+   cd my_product_app
+   ```
+
+3. Install the required dependencies:
 
    ```bash
    flutter pub get
-   flutterfire configure --platforms=android
    ```
 
-4. Ensure `lib/firebase_options.dart` is generated for your own Firebase project.
-5. Run:
+4. Make sure the application is configured with the Firebase project and that Email/Password authentication is enabled in Firebase Console. If configuring a new Firebase project, use:
+
+   ```bash
+   flutterfire configure
+   ```
+
+5. Run the application:
 
    ```bash
    flutter run
    ```
 
-## Notes
-- Do not copy another student's `firebase_options.dart`.
-- Use fictional class data only.
-- Firestore test mode is temporary and is not suitable for production.
-- Run `flutter analyze` and complete the assignment's T1–T8 tests before submitting.
-- Record actual test outcomes in your report; do not claim tests passed unless you observed them.
+6. To build the Android release APK:
+
+   ```bash
+   flutter build apk --release
+   ```
+
+   The generated APK will be available at:
+
+   ```text
+   build/app/outputs/flutter-apk/app-release.apk
+   ```
+
+## Testing
+
+The application was tested using the iPhone simulator. The following authentication features were checked:
+
+| Test | Observation |
+|---|---|
+| Sign in with valid credentials | Successfully opened the profile screen and displayed the user's email. |
+| Enter incorrect login credentials | Displayed the error message "Incorrect email or password." |
+| Password update | Displayed the password update dialog and the success message after updating. |
+| Sign out | Returned to the authentication screen. |
+| Registration interface | The Create Account screen was displayed. A separate successful new-user registration was not documented. |
+
+Additional useful tests include creating a new account, checking session persistence after restarting the application, and verifying that the old password no longer works after a password update.
+
+## Technologies Used
+
+- Flutter
+- Dart
+- Firebase Authentication
+- Firebase Core
+- Cloud Firestore (existing project dependency)
+
+## AI Disclosure
+
+ChatGPT (GPT-6) was used on November 5, 2026, to assist with reviewing the application design, authentication implementation, and testing considerations.
