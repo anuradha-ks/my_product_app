@@ -12,7 +12,12 @@
           "package_name": "com.example.my_product_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "876343065088-421vhcobfa6qu0ndjfifr9n6k39aqbck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCyBPy7gwAN2olu8P8uKWr0W1B_9KC9HZ0"
@@ -20,7 +25,55 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876343065088-421vhcobfa6qu0ndjfifr9n6k39aqbck.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "876343065088-62m555pfaa9oqqs3g08d0uamggdvi7pr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myProductApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876343065088:android:fbba51495036d3cde2b6e5",
+        "android_client_info": {
+          "package_name": "com.example.waypoint"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876343065088-421vhcobfa6qu0ndjfifr9n6k39aqbck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyBPy7gwAN2olu8P8uKWr0W1B_9KC9HZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876343065088-421vhcobfa6qu0ndjfifr9n6k39aqbck.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "876343065088-62m555pfaa9oqqs3g08d0uamggdvi7pr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myProductApp"
+              }
+            }
+          ]
         }
       }
     }
